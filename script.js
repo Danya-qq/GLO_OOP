@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", ready);
 const container = document.querySelector('.container');
 console.log(container);
 
@@ -10,7 +11,7 @@ function DomElement(selector, height, width, bg, fontSize){
 
 };
 
-DomElement.prototype.addElem = function(){
+DomElement.prototype.addElem = function(text = ''){
     let elem;
     if (this.selector.startsWith('.')) {
         elem = document.createElement('div')
@@ -26,17 +27,17 @@ DomElement.prototype.addElem = function(){
     // let props = `${this.height}; ${this.bg}; ${this.width}; ${this.fontSize}`;  
     // elem.setAttribute('style', props);
     elem.style.cssText = `${this.height}; ${this.width}; ${this.bg}; ${this.fontSize}`;
-   
-    
+    elem.innerHTML = text; 
 }; 
 
 let element1 = new DomElement('.block', 'height: 30px', 'width: 560px', 'background-color: green', 'font-size: 20px');
 
 let element2 = new DomElement('.block', 'height: 50px', 'width: 200px', 'background-color: yellow', 'font-size: 40px');
  
-element1.addElem();
+element1.addElem('aaaa');
 element2.addElem();
-console.log(element1);
+
+
 
 
 
