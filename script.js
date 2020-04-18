@@ -16,27 +16,24 @@ DomElement.prototype.addElem = function(text = ''){
         elem.setAttribute('class', this.selector.slice(1));
         console.log(elem);
     } else if (this.selector.startsWith('#')) {
-        elem = document.createElement('div');
+        elem = document.createElement('p');
         elem.setAttribute('id', this.selector.slice(1));
         console.log(elem);
     } else return;
    
     container.append(elem);
-    // let props = `${this.height}; ${this.bg}; ${this.width}; ${this.fontSize}`;  
-    // elem.setAttribute('style', props);
+
     elem.style.cssText = `${this.height}; ${this.width}; ${this.bg}; ${this.fontSize}`;
     elem.innerHTML = text; 
 }; 
 
 let element1 = new DomElement('.block', 'height: 30px', 'width: 560px', 'background-color: green', 'font-size: 20px');
+let element2 = new DomElement('#block', 'height: 30px', 'width: 560px', 'background-color: green', 'font-size: 20px');
 
-let element2 = new DomElement('.block', 'height: 50px', 'width: 200px', 'background-color: yellow', 'font-size: 40px');
- 
-let element3 = new DomElement('.block', 'height: 50px', 'width: 200px', 'background-color: blue', 'font-size: 40px');
 
 element1.addElem('aaaa');
-element2.addElem();
-element3.addElem();
+element2.addElem('Text')
+
 
 
 
